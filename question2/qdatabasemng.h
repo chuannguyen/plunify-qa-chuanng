@@ -15,9 +15,9 @@ public:
     void printAll();
 
 private:
-    QSqlDatabase m_db;
-
     void create_spl_tbl();
+
+    QSqlDatabase m_db;
 };
 
 #endif // QDATABASEMNG_H
