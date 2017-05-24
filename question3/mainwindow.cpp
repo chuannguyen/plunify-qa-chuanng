@@ -28,8 +28,8 @@ void MainWindow::translateBtnClick()
 {
     Coder *coders = new Coder();
     coders->text = textIn->toPlainText();
-    coders->start();
     connect(coders, SIGNAL(resultready(QByteArray)), this, SLOT(updatebase64(QByteArray)));
+    coders->start();
 }
 
 void MainWindow::updatebase64(const QByteArray bytes)

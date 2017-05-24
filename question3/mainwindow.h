@@ -23,7 +23,6 @@ private slots:
     void updatebase64(const QByteArray bytes);
 
 private:
-    Ui::MainWindow *ui;
     QVBoxLayout * m_layout;
     QPlainTextEdit *textIn;
     QPushButton * translateBtn;
