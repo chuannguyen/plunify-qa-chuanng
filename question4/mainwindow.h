@@ -17,6 +17,8 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+    void openconnection(QString dbpath);
+
 private slots:
     void updateData(QStandardItem *stdItem);
 

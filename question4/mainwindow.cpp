@@ -3,7 +3,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-{
+{           
     this->setCentralWidget(new QWidget());
     m_layout = new QVBoxLayout();
     this->centralWidget()->setLayout(m_layout);
@@ -12,9 +12,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_layout->addWidget(view);
     view->setEditTriggers(QAbstractItemView::NoEditTriggers);
 //    view->show();
-
-    q_db = new QDataBaseMNG("people.db");
-    q_db->printAll();
 
     // Create the data model
     model = new QStandardItemModel();
@@ -25,9 +22,6 @@ MainWindow::MainWindow(QWidget *parent)
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("ISSUE"));
 
     view->setModel(model);
-
-    connect(q_db, SIGNAL(resultready(QStandardItem*)), this, SLOT(updateData(QStandardItem*)));
-    q_db->start();
 //    view->setCurrentIndex(model->index(0, 0));
 }
 
@@ -35,6 +29,14 @@ void MainWindow::showError(const QSqlError &err)
 {
     QMessageBox::critical(this, "Unable to initialize Database",
                 "Error initializing database: " + err.text());
+}
+
+void MainWindow::openconnection(QString dbpath)
+{
+    q_db = new QDataBaseMNG(dbpath);
+    q_db->printAll();
+    connect(q_db, SIGNAL(resultready(QStandardItem*)), this, SLOT(updateData(QStandardItem*)));
+    q_db->start();
 }
 
 void MainWindow::updateData(QStandardItem *stdItem)
