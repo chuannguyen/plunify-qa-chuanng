@@ -270,7 +270,9 @@ release/qdatabasemng.o: ../question2/qdatabasemng.cpp ../question2/qdatabasemng.
 		C:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtSql/qsqldatabase.h \
 		C:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtSql/qsql.h \
 		C:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtSql/QSqlQuery \
-		C:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtSql/qsqlquery.h
+		C:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtSql/qsqlquery.h \
+		C:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtSql/QSqlError \
+		C:/Qt/Qt5.4.2/5.4/mingw491_32/include/QtSql/qsqlerror.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qdatabasemng.o ..\question2\qdatabasemng.cpp
 
 ####### Install
